@@ -1,5 +1,5 @@
 # WifiPassword-Stealer
-Get All Wifi Passwords and Send to your Mail
+Get All Connected Wifi Passwords and Send to your Mail
 
 ## EXE FILE
 
